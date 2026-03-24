@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: grannix
+  datasource:
+    url: jdbc:postgresql://localhost:5432/grannix
+    username: grannix_user
+    password: grannix123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 4050

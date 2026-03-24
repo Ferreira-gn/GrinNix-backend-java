@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: grannix-db
+    restart: always # Reinicia automaticamente se cair
+    environment:
+      POSTGRES_DB: grannix
+      POSTGRES_USER: grannix_user
+      POSTGRES_PASSWORD: grannix123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
