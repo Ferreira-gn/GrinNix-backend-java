@@ -1,4 +1,4 @@
-package com.ferreira_gn.grannix.model.impl;
+package com.ferreira_gn.grannix.model;
 
 import com.ferreira_gn.grannix.database.entity.ProblemsEntity;
 import com.ferreira_gn.grannix.database.enums.DifficultyEnum;
@@ -6,7 +6,6 @@ import com.ferreira_gn.grannix.dto.problems.CreateProblemsRequestDTO;
 import com.ferreira_gn.grannix.dto.problems.ProblemsDTO;
 import com.ferreira_gn.grannix.dto.problems.UpdateProblemRequestDTO;
 import com.ferreira_gn.grannix.exception.errors.ResourceNotFoundException;
-import com.ferreira_gn.grannix.model.interfaces.ProblemsModel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -15,12 +14,11 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProblemsModelIMPL implements ProblemsModel {
+public class ProblemsModel {
 
   @PersistenceContext
   private EntityManager entityManager;
 
-  @Override
   @Transactional
   public boolean createProblem(CreateProblemsRequestDTO problem) {
     try {
@@ -31,7 +29,6 @@ public class ProblemsModelIMPL implements ProblemsModel {
     }
   }
 
-  @Override
   @Transactional
   public void updateProblem(UUID id, UpdateProblemRequestDTO body) {
     ProblemsEntity probelm = entityManager.find(ProblemsEntity.class, id);
@@ -47,7 +44,6 @@ public class ProblemsModelIMPL implements ProblemsModel {
     );
   }
 
-  @Override
   public List<ProblemsDTO> listProblems() {
     return entityManager
       .createQuery("SELECT p FROM ProblemsEntity p", ProblemsEntity.class)
@@ -57,7 +53,6 @@ public class ProblemsModelIMPL implements ProblemsModel {
       .toList();
   }
 
-  @Override
   public ProblemsDTO findProblemById(UUID id) {
     ProblemsEntity entity = entityManager.find(ProblemsEntity.class, id);
 

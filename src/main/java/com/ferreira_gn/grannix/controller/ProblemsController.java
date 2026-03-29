@@ -3,7 +3,7 @@ package com.ferreira_gn.grannix.controller;
 import com.ferreira_gn.grannix.dto.problems.CreateProblemsRequestDTO;
 import com.ferreira_gn.grannix.dto.problems.ProblemsDTO;
 import com.ferreira_gn.grannix.dto.problems.UpdateProblemRequestDTO;
-import com.ferreira_gn.grannix.model.interfaces.ProblemsModel;
+import com.ferreira_gn.grannix.model.ProblemsModel;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
