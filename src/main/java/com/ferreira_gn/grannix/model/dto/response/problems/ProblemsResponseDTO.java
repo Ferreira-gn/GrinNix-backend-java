@@ -7,5 +7,6 @@ public record ProblemsResponseDTO(
   UUID id,
   String title,
   String description,
-  DifficultyEnum difficulty
+  DifficultyEnum difficulty,
+  ProblemsSignatureResponseDTO signature
 ) {}

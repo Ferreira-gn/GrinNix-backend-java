@@ -39,9 +39,12 @@ public class ProblemsEntity {
   @Column(name = "updated_at", nullable = false)
   private LocalDateTime updatedAt;
 
-    public void update(ProblemsEntity infoToUpdate) {
-      if (infoToUpdate.getTitle() != null) this.setTitle(infoToUpdate.getTitle());
-      if (infoToUpdate.getDescription() != null) this.setDescription(infoToUpdate.getDescription());
-      if (infoToUpdate.getDifficulty() != null) this.setDifficulty(infoToUpdate.getDifficulty());
+  @OneToOne(mappedBy = "problem")
+  private SignaturesEntity signature;
+
+  public void update(ProblemsEntity infoToUpdate) {
+    if (infoToUpdate.getTitle() != null) this.setTitle(infoToUpdate.getTitle());
+    if (infoToUpdate.getDescription() != null) this.setDescription(infoToUpdate.getDescription());
+    if (infoToUpdate.getDifficulty() != null) this.setDifficulty(infoToUpdate.getDifficulty());
     }
 }
