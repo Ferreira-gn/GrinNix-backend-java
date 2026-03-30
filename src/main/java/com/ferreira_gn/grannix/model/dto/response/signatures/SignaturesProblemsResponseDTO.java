@@ -4,7 +4,7 @@ import com.ferreira_gn.grannix.model.domain.enums.DifficultyEnum;
 
 import java.util.UUID;
 
-public record SignatureProblemsResponseDTO(
+public record SignaturesProblemsResponseDTO(
         UUID id,
         String title,
         String description,

@@ -6,6 +6,6 @@ public record SignaturesResponseDTO(
     UUID id,
     String signature,
     SignaturesLanguageResponseDTO language,
-    SignatureProblemsResponseDTO problem
+    SignaturesProblemsResponseDTO problem
 ) {
 }
