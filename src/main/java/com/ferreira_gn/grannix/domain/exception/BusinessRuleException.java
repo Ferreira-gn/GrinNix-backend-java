@@ -1,4 +1,4 @@
-package com.ferreira_gn.grannix.exception.errors;
+package com.ferreira_gn.grannix.domain.exception;
 
 public class BusinessRuleException extends RuntimeException {
 

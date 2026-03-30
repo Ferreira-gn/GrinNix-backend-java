@@ -1,12 +1,13 @@
-package com.ferreira_gn.grannix.dto.problems;
+package com.ferreira_gn.grannix.dto.request.problems;
 
-import com.ferreira_gn.grannix.database.enums.DifficultyEnum;
+import com.ferreira_gn.grannix.domain.enums.DifficultyEnum;
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record CreateProblemsRequestDTO(
-  @NotBlank(message = "Title is required")
+public record UpdateProblemRequestDTO(
+  @NotNull(message = "Tittle cannot be null")
   @Size(
     min = 5,
     max = 100,
@@ -14,7 +15,7 @@ public record CreateProblemsRequestDTO(
   )
   String title,
 
-  @NotBlank(message = "Description is required")
+  @NotNull(message = "Description cannot be null")
   @Size(
     min = 100,
     max = 10000,
@@ -22,5 +23,6 @@ public record CreateProblemsRequestDTO(
   )
   String description,
 
-  @NotNull(message = "Difficulty is required") DifficultyEnum difficulty
+
+  DifficultyEnum difficulty
 ) {}

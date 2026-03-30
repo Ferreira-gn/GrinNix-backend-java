@@ -1,0 +1,23 @@
+name: github-ci
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on:
+      ubuntu-latest
+    steps:
+      - name: clone-repo
+        uses: actions/checkout@v4
+
+      - name: setup-java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: compile-code
+        run: mvn clean package -DskipTests

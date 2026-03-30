@@ -1,4 +1,4 @@
-package com.ferreira_gn.grannix.database.enums;
+package com.ferreira_gn.grannix.domain.enums;
 
 public enum DifficultyEnum {
   EASY,

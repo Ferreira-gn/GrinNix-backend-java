@@ -1,8 +1,7 @@
-package com.ferreira_gn.grannix.exception;
+package com.ferreira_gn.grannix.domain.exception;
 
-import com.ferreira_gn.grannix.dto.error.ErrorResponseDTO;
-import com.ferreira_gn.grannix.exception.errors.BusinessRuleException;
-import com.ferreira_gn.grannix.exception.errors.ResourceNotFoundException;
+import com.ferreira_gn.grannix.dto.response.error.ErrorResponseDTO;
+
 import java.time.Instant;
 import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;

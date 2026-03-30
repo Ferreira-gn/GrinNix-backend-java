@@ -1,4 +1,4 @@
-package com.ferreira_gn.grannix.dto.error;
+package com.ferreira_gn.grannix.dto.response.error;
 
 import java.time.Instant;
 
