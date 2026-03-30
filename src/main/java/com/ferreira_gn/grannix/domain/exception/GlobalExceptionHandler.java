@@ -65,4 +65,24 @@ public class GlobalExceptionHandler {
     );
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
   }
+
+  @ExceptionHandler(ProblemNotFoundException.class)
+  public ResponseEntity<ErrorResponseDTO> handleProblemNotFoundException(ProblemNotFoundException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
+
+  @ExceptionHandler(LanguageNotFoundException.class)
+  public ResponseEntity<ErrorResponseDTO> handleLanguageNotFoundException(LanguageNotFoundException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
 }
