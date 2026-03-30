@@ -1,9 +1,9 @@
 package com.ferreira_gn.grannix.controller;
 
-import com.ferreira_gn.grannix.dto.request.problems.CreateProblemsRequestDTO;
-import com.ferreira_gn.grannix.dto.request.problems.UpdateProblemRequestDTO;
-import com.ferreira_gn.grannix.dto.response.problems.ProblemsResponseDTO;
-import com.ferreira_gn.grannix.services.ProblemsService;
+import com.ferreira_gn.grannix.model.dto.request.problems.CreateProblemsRequestDTO;
+import com.ferreira_gn.grannix.model.dto.request.problems.UpdateProblemRequestDTO;
+import com.ferreira_gn.grannix.model.dto.response.problems.ProblemsResponseDTO;
+import com.ferreira_gn.grannix.model.services.ProblemsService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

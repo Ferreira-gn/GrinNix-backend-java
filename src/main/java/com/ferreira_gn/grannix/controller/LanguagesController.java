@@ -1,9 +1,9 @@
 package com.ferreira_gn.grannix.controller;
 
-import com.ferreira_gn.grannix.dto.request.languages.UpdateLanguageRequestDTO;
-import com.ferreira_gn.grannix.dto.request.languages.CreateLanguageRequestDTO;
-import com.ferreira_gn.grannix.dto.response.languages.LanguageResponseDTO;
-import com.ferreira_gn.grannix.services.LanguagesService;
+import com.ferreira_gn.grannix.model.dto.request.languages.UpdateLanguageRequestDTO;
+import com.ferreira_gn.grannix.model.dto.request.languages.CreateLanguageRequestDTO;
+import com.ferreira_gn.grannix.model.dto.response.languages.LanguageResponseDTO;
+import com.ferreira_gn.grannix.model.services.LanguagesService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
