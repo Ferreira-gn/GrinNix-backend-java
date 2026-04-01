@@ -32,6 +32,14 @@ public class SignaturesController {
         return ResponseEntity.ok(signaturesService.fetch(signatureId));
     }
 
+    @GetMapping("/languages/{languageId}/problems/{problemId}")
+    public ResponseEntity<SignaturesResponseDTO> fetchSignature(
+            @PathVariable UUID languageId,
+            @PathVariable UUID problemId
+    ) {
+        return ResponseEntity.ok(signaturesService.fetch(languageId, problemId));
+    }
+
     @GetMapping
     public ResponseEntity<List<SignaturesResponseDTO>> listSignatures() {
         return ResponseEntity.ok(signaturesService.list());

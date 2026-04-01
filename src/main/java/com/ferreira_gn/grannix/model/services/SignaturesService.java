@@ -47,6 +47,12 @@ public class SignaturesService {
         return signaturesMapper.map(this.findEntity(signatureId));
     }
 
+    public SignaturesResponseDTO fetch(UUID languageId, UUID problemId) {
+        SignaturesEntity signatureFound = signaturesRepository.findByLanguageIdAndProblemId(languageId, problemId)
+                .orElseThrow(SignatureNotFoundException::new);
+        return signaturesMapper.map(signatureFound);
+    }
+
     public List<SignaturesResponseDTO> list() {
         return signaturesRepository.findAll()
                 .stream()
