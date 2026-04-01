@@ -85,4 +85,54 @@ public class GlobalExceptionHandler {
     );
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
   }
+
+  @ExceptionHandler(EmailAlreadyExistsException.class)
+  public ResponseEntity<ErrorResponseDTO> handleEmailAlreadyExistsException(EmailAlreadyExistsException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.CONFLICT.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
+  }
+
+  @ExceptionHandler(SignatureNotFoundException.class)
+  public ResponseEntity<ErrorResponseDTO> handleSignatureNotFoundException(SignatureNotFoundException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
+
+  @ExceptionHandler(SubmissionNotFoundException.class)
+  public ResponseEntity<ErrorResponseDTO> handleSubmissionNotFoundException(SubmissionNotFoundException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
+
+  @ExceptionHandler(TestsCasesNotFoundException.class)
+  public ResponseEntity<ErrorResponseDTO> handleTestsCasesNotFoundException(TestsCasesNotFoundException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
+
+  @ExceptionHandler(UserNotFoundException.class)
+  public ResponseEntity<ErrorResponseDTO> handleUserNotFoundException(UserNotFoundException ex) {
+    ErrorResponseDTO error = new ErrorResponseDTO(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            Instant.now()
+    );
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+  }
 }
