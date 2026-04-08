@@ -12,8 +12,8 @@ public record CreateSubmissions(
         @NotBlank(message = "status cannot be blank")
         String status,
 
-        @NotNull(message = "runtimeMs cannot be null")
-        @NotBlank(message = "runtimeMs cannot be blank")
+        // @NotNull(message = "runtimeMs cannot be null")
+        // @NotBlank(message = "runtimeMs cannot be blank")
         Integer runtimeMs
 ) {
 }

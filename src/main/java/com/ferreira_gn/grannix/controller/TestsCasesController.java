@@ -5,48 +5,62 @@ import com.ferreira_gn.grannix.model.dto.request.testsCases.UpdateTestsCasesRequ
 import com.ferreira_gn.grannix.model.dto.response.testsCases.TestsCasesResponseDTO;
 import com.ferreira_gn.grannix.model.services.TestsCasesService;
 import jakarta.validation.Valid;
+import java.util.List;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.UUID;
-
 @RestController
 @RequestMapping("/tests-cases")
 @RequiredArgsConstructor
+@CrossOrigin(
+  origins = "http://localhost:5173",
+  methods = {
+    RequestMethod.GET,
+    RequestMethod.DELETE,
+    RequestMethod.PUT,
+    RequestMethod.POST,
+    RequestMethod.PATCH,
+  },
+  allowCredentials = "true",
+  maxAge = 3600
+)
 public class TestsCasesController {
-    private final TestsCasesService testsCasesService;
 
-    @PostMapping("/problems/{problemId}")
-    public ResponseEntity<TestsCasesResponseDTO> createTestCase(
-            @PathVariable UUID problemId,
-            @RequestBody @Valid CreateTestCaseRequestDTO request
-    ) {
-        return ResponseEntity.ok(testsCasesService.register(problemId, request));
-    }
+  private final TestsCasesService testsCasesService;
 
-    @GetMapping("/{testCaseId}")
-    public ResponseEntity<TestsCasesResponseDTO> fetchTestCase(@PathVariable UUID testCaseId) {
-        return ResponseEntity.ok(testsCasesService.fetch(testCaseId));
-    }
+  @PostMapping("/problems/{problemId}")
+  public ResponseEntity<TestsCasesResponseDTO> createTestCase(
+    @PathVariable UUID problemId,
+    @RequestBody @Valid CreateTestCaseRequestDTO request
+  ) {
+    return ResponseEntity.ok(testsCasesService.register(problemId, request));
+  }
 
-    @GetMapping
-    public ResponseEntity<List<TestsCasesResponseDTO>> listTestsCases() {
-        return ResponseEntity.ok(testsCasesService.list());
-    }
+  @GetMapping("/{testCaseId}")
+  public ResponseEntity<TestsCasesResponseDTO> fetchTestCase(
+    @PathVariable UUID testCaseId
+  ) {
+    return ResponseEntity.ok(testsCasesService.fetch(testCaseId));
+  }
 
-    @PutMapping("/{testCaseId}")
-    public ResponseEntity<TestsCasesResponseDTO> updateTestCase(
-            @PathVariable UUID testCaseId,
-            @Valid @RequestBody UpdateTestsCasesRequestDTO request
-    ) {
-        return ResponseEntity.ok(testsCasesService.update(testCaseId, request));
-    }
+  @GetMapping
+  public ResponseEntity<List<TestsCasesResponseDTO>> listTestsCases() {
+    return ResponseEntity.ok(testsCasesService.list());
+  }
 
-    @DeleteMapping("/{testCaseId}")
-    public ResponseEntity<Void> deleteTestCase(@PathVariable UUID testCaseId) {
-        testsCasesService.delete(testCaseId);
-        return ResponseEntity.ok().build();
-    }
+  @PutMapping("/{testCaseId}")
+  public ResponseEntity<TestsCasesResponseDTO> updateTestCase(
+    @PathVariable UUID testCaseId,
+    @Valid @RequestBody UpdateTestsCasesRequestDTO request
+  ) {
+    return ResponseEntity.ok(testsCasesService.update(testCaseId, request));
+  }
+
+  @DeleteMapping("/{testCaseId}")
+  public ResponseEntity<Void> deleteTestCase(@PathVariable UUID testCaseId) {
+    testsCasesService.delete(testCaseId);
+    return ResponseEntity.ok().build();
+  }
 }

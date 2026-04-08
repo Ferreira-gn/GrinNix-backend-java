@@ -15,6 +15,18 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/problems")
 @RequiredArgsConstructor
+@CrossOrigin(
+  origins = "http://localhost:5173",
+  methods = {
+    RequestMethod.GET,
+    RequestMethod.DELETE,
+    RequestMethod.PUT,
+    RequestMethod.POST,
+    RequestMethod.PATCH,
+  },
+  allowCredentials = "true",
+  maxAge = 3600
+)
 public class ProblemsController {
     private final ProblemsService problemsService;
 
